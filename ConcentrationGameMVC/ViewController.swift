@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var flipsNumOutlet: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
     @IBAction func flipCard(_ sender: UIButton) {
+        
         flipCount+=1
         if let selectedCard = cardButtons.index(of: sender){
             game.chooseCard(at: selectedCard)

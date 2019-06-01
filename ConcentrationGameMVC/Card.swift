@@ -7,14 +7,22 @@
 //
 
 import Foundation
-struct Card {
+struct Card : Hashable {
+    var hashValue: Int {
+        return identifier
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+    
     var isFaceUp = false
     var isMatched = false
-    var identifier : Int
+    private var identifier : Int
+   
+    private static var identifierFactory = 0
     
-    static var identifierFactory = 0
-    
-    static func getUniqueIdentifier () -> Int {
+    private static func getUniqueIdentifier () -> Int {
         Card.identifierFactory+=1 //or we can neglect Card. as we access static member from static method
         return Card.identifierFactory
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 class Concentration{
-    var cards = [Card]()
+    private(set) var cards = [Card]()
     var indexOfOneAndOnlyCardFacedUp : Int?
     init (numberOfPairsOfCards : Int){
         for _ in 1...numberOfPairsOfCards{
@@ -21,7 +21,7 @@ class Concentration{
         //the whole logic of the game
         if let matchIndex=indexOfOneAndOnlyCardFacedUp,index != matchIndex{
             //in this case there is a selected card before and i selected another so we check if they are matched
-            if cards[matchIndex].identifier==cards[index].identifier{
+            if cards[matchIndex]==cards[index]{
                 //kda m3nah ene e5trt 2 cards shabah b3d
                 cards[matchIndex].isMatched=true
                 cards[index].isMatched=true
